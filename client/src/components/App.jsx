@@ -11,7 +11,7 @@ const App = (props) => {
   const [allMovies, setAllMovies] = useState(movieSelections);
   // 2. Create a state for altering the movie list
   const [movies, setMovies] = useState(movieSelections);
-
+  const [addedMovies, setAddedMovies] = useState([]);
 
 
   return (
@@ -23,11 +23,11 @@ const App = (props) => {
           <Search setMovies={setMovies} allMovies={allMovies}/>
         </div>
         <div id="addMovie">
-          <AddMovies />
+          <AddMovies allMovies={allMovies} setAddedMovies={setAddedMovies} />
         </div>
         <div className="movieList">
           {/* 10. MovieList renders the movies filtered from search */}
-          <MovieList movieSelections={movies} />
+          <MovieList movieSelections={movieSelections} />
         </div>
       </div>
     </div>
