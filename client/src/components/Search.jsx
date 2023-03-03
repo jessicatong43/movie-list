@@ -23,7 +23,6 @@ var Search = ({allMovies, setMovies}) => {
       setMovies(allMovies);
     }
     var result = allMovies.filter(movie => movie.title.toLowerCase().includes(search));
-    console.log('result: ', result);
     setMovies(result);
   }
 

@@ -6,8 +6,8 @@ var MovieList = ({movies}) => {
   }
   return (
     <div>
-      {movies.map((movie) => {
-        return <div className="movie">{movie.title}</div>
+      {movies.map((movie, index) => {
+        return <div className="movie" key={index}>{movie.title}</div>
       })}
     </div>
   )
