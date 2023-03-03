@@ -1,13 +1,13 @@
 import React from 'react';
 const { useState } = React;
 
-var AddMovies = ({allMovies, setAddedMovies}) => {
+var AddMovies = ({allMovies, setAllMovies}) => {
 
   const [movieToAdd, setMovieToAdd] = useState('');
 
   var handleChange = (e) => {
     e.preventDefault();
-    console.log('allMovies: ', allMovies);
+    // console.log('allMovies: ', allMovies);
     var newAddedMovies = allMovies.slice();
     newAddedMovies.push({title: e.target.value});
     setMovieToAdd(newAddedMovies)
@@ -15,7 +15,7 @@ var AddMovies = ({allMovies, setAddedMovies}) => {
 
   var handleClick = (e) => {
     e.preventDefault();
-    setAddedMovies(movieToAdd);
+    setAllMovies(movieToAdd);
   };
 
   return (

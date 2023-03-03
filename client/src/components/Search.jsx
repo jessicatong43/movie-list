@@ -23,6 +23,7 @@ var Search = ({allMovies, setMovies}) => {
       setMovies(allMovies);
     }
     var result = allMovies.filter(movie => movie.title.toLowerCase().includes(search));
+    console.log('result: ', result);
     setMovies(result);
     if (result.length === 0) {
       return <div>No movies found</div>

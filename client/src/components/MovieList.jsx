@@ -1,9 +1,9 @@
 import React from 'react';
 
-var MovieList = ({movieSelections}) => {
+var MovieList = ({movies}) => {
   return (
     <div>
-      {movieSelections.map((movie) => {
+      {movies.map((movie) => {
         return <div className="movie">{movie.title}</div>
       })}
     </div>
