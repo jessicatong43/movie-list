@@ -23,7 +23,7 @@ const App = (props) => {
           <Search setMovies={setMovies} allMovies={allMovies}/>
         </div>
         <div id="addMovie">
-          <AddMovies allMovies={allMovies} setAllMovies={setAllMovies} />
+          <AddMovies allMovies={allMovies} setAllMovies={setAllMovies} setMovies={setMovies} />
         </div>
         <div className="movieList">
           {/* 10. MovieList renders the movies filtered from search */}

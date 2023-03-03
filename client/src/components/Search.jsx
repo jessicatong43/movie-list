@@ -9,7 +9,7 @@ var Search = ({allMovies, setMovies}) => {
 
   // 7. handleChange takes in user's event of typing
   var handleChange = (e) => {
-    console.log('e.target.value: ', e.target.value);
+    // console.log('e.target.value: ', e.target.value);
     e.preventDefault();
     // 8. Set search query's state to user input
     setSearch(e.target.value.toLowerCase());
@@ -24,6 +24,8 @@ var Search = ({allMovies, setMovies}) => {
     }
     var result = allMovies.filter(movie => movie.title.toLowerCase().includes(search));
     setMovies(result);
+    setSearch('');
+    document.getElementById('searchbar').value = '';
   }
 
     return (

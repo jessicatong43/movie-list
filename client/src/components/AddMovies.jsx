@@ -1,28 +1,35 @@
 import React from 'react';
 const { useState } = React;
 
-var AddMovies = ({allMovies, setAllMovies}) => {
+var AddMovies = ({allMovies, setAllMovies, setMovies}) => {
 
   const [movieToAdd, setMovieToAdd] = useState('');
 
   var handleChange = (e) => {
     e.preventDefault();
-    // console.log('allMovies: ', allMovies);
-    var newAddedMovies = allMovies.slice();
-    newAddedMovies.push({title: e.target.value});
-    setMovieToAdd(newAddedMovies)
+    setMovieToAdd({title: e.target.value});
   };
 
-  var handleClick = (e) => {
+  var handleSubmit = (e) => {
     e.preventDefault();
-    setAllMovies(movieToAdd);
+    if (movieToAdd === '') {
+      return;
+    }
+
+    setAllMovies([...allMovies, { title: e.target[0].value }]);
+    setMovies([...allMovies, { title: e.target[0].value }]);
+
+    setMovieToAdd('');
+    document.getElementById('addMovieInput').value = '';
+    // window.alert('Movie added!');
+
   };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input type="text" id="addMovieInput" onChange={handleChange} />
-      <button onClick={handleClick}>Add Movie</button>
-    </div>
+      <button>Add Movie</button>
+    </form>
   )
 };
 
