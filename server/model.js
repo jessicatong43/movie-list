@@ -8,15 +8,23 @@ const getAll = (callback) => {
   db.connection.query(
     'SELECT * FROM movies',
     // G5) Model receives results from db and passes them to handler callback (see #G6 in controller.js)
-    function(err, results) {
+    ((err, results) => {
       callback(err, results);
-    }
+    })
   );
 };
 
-// const post = (req, res) => {
-//   res.send('Request posted!')
-// };
+const create = (reqBody, callback) => {
+  console.log('REQBODY TITLE =====> ', reqBody.title);
+  db.connection.query(
+    `INSERT INTO movies (title) VALUES ('${reqBody.title}')`,
+    ((err, results) => {
+      console.log('ERROR =====> ', err);
+      console.log('QUERY RESULTS =====> ', results);
+      callback(err,results);
+    })
+  );
+}
 
 exports.getAll = getAll;
-// exports.post = post;
+exports.create = create;

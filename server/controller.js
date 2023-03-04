@@ -17,9 +17,16 @@ const get = (req, res) => {
   });
 };
 
-// TODO: Create post handler
 const post = (req, res) => {
-  res.send('Request posted!')
+  var movieTitle = req.body;
+  model.create(req.body, (err, results) => {
+    if (err) {
+      console.log('INSIDE ERROR HANDLER');
+      res.end(err);
+    } else {
+      res.json(results);
+    }
+  });
 };
 
 exports.get = get;

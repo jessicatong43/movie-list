@@ -8,8 +8,8 @@ app.use(express.json());
 
 // G1) Route requests to the proper controller (see #2 in controller.js)
 // Router
-app.get('/movies', controller.get);
-app.post('/movies', controller.post);
+app.get('/api/movies', controller.get);
+app.post('/api/movies', controller.post);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
